@@ -1397,8 +1397,8 @@
     "m_ObjectId": "0b07b8d11d8a41e69db5ec80ad199e40",
     "m_Title": "UV Wobble",
     "m_Position": {
-        "x": -440.0,
-        "y": 148.00003051757813
+        "x": -439.99993896484377,
+        "y": 147.9999237060547
     }
 }
 
@@ -1408,8 +1408,8 @@
     "m_ObjectId": "0b0d63d2bab14fda9de39977fd2020c0",
     "m_Title": "Scene Color",
     "m_Position": {
-        "x": 2390.66650390625,
-        "y": 546.6666259765625
+        "x": 2390.666748046875,
+        "y": 546.6666870117188
     }
 }
 
@@ -2063,7 +2063,7 @@
     "m_Title": "PX",
     "m_Position": {
         "x": -215.33331298828126,
-        "y": 1018.6668090820313
+        "y": 1018.6666870117188
     }
 }
 
@@ -3238,8 +3238,8 @@
     "m_ObjectId": "5a5612edf6c8490ca6bb0497fbe4e5ed",
     "m_Title": "LRUD Samples",
     "m_Position": {
-        "x": 725.3333129882813,
-        "y": 811.3333740234375
+        "x": 725.33349609375,
+        "y": 811.333251953125
     }
 }
 
@@ -5624,10 +5624,10 @@
     "m_DstAlphaBlendMode": 1,
     "m_AlphaBlendOperation": 0,
     "m_EnableStencil": false,
-    "m_StencilReference": 0,
+    "m_StencilReference": 1,
     "m_StencilReadMask": 255,
     "m_StencilWriteMask": 255,
-    "m_StencilCompareFunction": 8,
+    "m_StencilCompareFunction": 6,
     "m_StencilPassOperation": 0,
     "m_StencilFailOperation": 0,
     "m_StencilDepthFailOperation": 0,

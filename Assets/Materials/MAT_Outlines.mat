@@ -40,7 +40,7 @@ Material:
     - _NoiseScale: 150
     - _OutlinesColorThreshold: 0.2
     - _OutlinesThickness: 1.5
-    - _OutlinesThreshold: 0.25
+    - _OutlinesThreshold: 0.5
     m_Colors:
     - _OutlinesColor: {r: 0.06918234, g: 0.06918234, b: 0.06918234, a: 1}
   m_BuildTextureStacks: []
