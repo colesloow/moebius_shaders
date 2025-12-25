@@ -48,7 +48,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.715615, b: 0.41194963, a: 1}
+    - _BaseColor: {r: 0.8238993, g: 0.7234039, b: 0.6554922, a: 1}
     - _HatchColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightTint: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTint: {r: 0.7924528, g: 0.36632246, b: 0.36632246, a: 1}
