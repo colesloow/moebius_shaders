@@ -42,6 +42,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DissolveAmount: 0.382
+    - _DissolveEdgeWidth: 1
+    - _DissolveNoiseScale: 4
     - _HatchScale: 3
     - _LightScale: 1
     - _LightThreshold: 0
