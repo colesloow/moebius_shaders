@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - _Amount: 0
     - _BackfaceOpacity: 0.25
-    - _BubbleOpacity: 0.55
+    - _BubbleOpacity: 0.5
     - _Dissolve: 0
     - _EdgeOpacity: 1
     - _EdgeStrength: 1
