@@ -39,7 +39,7 @@ Material:
     m_Floats:
     - _NoiseScale: 0
     - _OutlinesColorThreshold: 0.2
-    - _OutlinesThickness: 1.4
+    - _OutlinesThickness: 0.5
     - _OutlinesThreshold: 0.5
     m_Colors:
     - _OutlinesColor: {r: 0.06918234, g: 0.06918234, b: 0.06918234, a: 1}
