@@ -1,3 +1,10 @@
+// Screen-space outline utilities.
+// DepthBasedOutlines and NormalBasedOutlines adapted from this tutorial:
+// https://www.youtube.com/watch?v=nc3a3THBFrg&t=1286s
+//
+// Extended with color-based edge detection (luminance contrast)
+// to properly support outlines on transparent objects.
+
 struct ScharrOperators
 {
     float3x3 x;
@@ -32,16 +39,15 @@ ScharrOperators GetEdgeDetectionKernels()
 
 void DepthBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
 {
-    // Toujours initialiser, pour éviter l'erreur du compilateur
+    // Always initialize to avoid compiler warnings
     outlines = 0.0;
-
-#if defined(UNITY_DECLARE_DEPTH_TEXTURE_INCLUDED)
 
     ScharrOperators k = GetEdgeDetectionKernels();
 
     float gx = 0.0;
     float gy = 0.0;
 
+    // Sample depth in a 3x3 neighborhood
     for (int i = -1; i <= 1; i++)
     {
         for (int j = -1; j <= 1; j++)
@@ -51,7 +57,7 @@ void DepthBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
             float d = SampleSceneDepth(screenUV + offset);
             d = LinearEyeDepth(d, _ZBufferParams);
 
-            // (row, col) => (j, i)
+            // (row, col) -> (j, i)
             gx += d * k.x[j + 1][i + 1];
             gy += d * k.y[j + 1][i + 1];
         }
@@ -59,27 +65,23 @@ void DepthBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
 
     float g = sqrt(gx * gx + gy * gy);
 
-    // seuil à ajuster
+    // Threshold controls outline sensitivity
     outlines = step(0.05, g);
-
-#endif
 }
-
 
 void NormalBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
 {
-    // Toujours initialiser
+    // Always initialize
     outlines = 0.0;
-
-#if defined(UNITY_DECLARE_NORMALS_TEXTURE_INCLUDED)
 
     ScharrOperators k = GetEdgeDetectionKernels();
 
     float gx = 0.0;
     float gy = 0.0;
 
-    float3 cn = SampleSceneNormals(screenUV);
+    float3 centerNormal = SampleSceneNormals(screenUV);
 
+    // Sample normal differences in a 3x3 neighborhood
     for (int i = -1; i <= 1; i++)
     {
         for (int j = -1; j <= 1; j++)
@@ -89,9 +91,10 @@ void NormalBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
             float2 offset = float2(i, j) * px;
             float3 n = SampleSceneNormals(screenUV + offset);
 
-            float dp = dot(cn, n);
+            // Dot product measures angular difference
+            float dp = dot(centerNormal, n);
 
-            // (row, col) => (j, i)
+            // (row, col) -> (j, i)
             gx += dp * k.x[j + 1][i + 1];
             gy += dp * k.y[j + 1][i + 1];
         }
@@ -99,14 +102,13 @@ void NormalBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
 
     float g = sqrt(gx * gx + gy * gy);
 
-    // IMPORTANT: step(2,g) est souvent trop haut si dp est proche de 1
+    // Lower thresholds work better since dp is usually close to 1
     outlines = step(0.2, g);
-
-#endif
 }
 
 float SG_Luma(float3 c)
 {
+    // Standard perceptual luminance
     return dot(c, float3(0.2126, 0.7152, 0.0722));
 }
 
@@ -118,16 +120,20 @@ void ColorBasedOutlinesFromSamples_float(
     float threshold,
     out float outlines)
 {
+    // Compute luminance for each neighbor sample
     float lL = SG_Luma(cL.rgb);
     float lR = SG_Luma(cR.rgb);
     float lU = SG_Luma(cU.rgb);
     float lD = SG_Luma(cD.rgb);
 
+    // Edge strength based on local luminance contrast
     float lMin = min(min(lL, lR), min(lU, lD));
     float lMax = max(max(lL, lR), max(lU, lD));
     float e = lMax - lMin;
 
+    // Contrast amplification factor
     e *= 5.0;
 
+    // Smooth thresholding for softer edges
     outlines = smoothstep(threshold, threshold * 2.0, e);
 }
