@@ -53,7 +53,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0.90881366, b: 0.50628924, a: 1}
     - _HatchColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightTint: {r: 1, g: 1, b: 1, a: 1}
+    - _LightTint: {r: 0.9496855, g: 0.9496855, b: 0.9496855, a: 1}
     - _ShadowTint: {r: 1, g: 0.40920934, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseScale: 5
+    - _NoiseScale: 0
     - _OutlinesColorThreshold: 0.2
     - _OutlinesThickness: 1.4
     - _OutlinesThreshold: 0.5
