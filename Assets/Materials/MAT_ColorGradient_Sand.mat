@@ -51,10 +51,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 0.821668, g: 0.6784314, b: 0.8862745, a: 1}
+    - _BaseColor: {r: 0.89690274, g: 0.7003678, b: 0.9811321, a: 1}
     - _HatchColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightTint: {r: 0.899371, g: 0.899371, b: 0.899371, a: 1}
-    - _ShadowTint: {r: 0.7987421, g: 0.30392376, b: 0.3849034, a: 1}
+    - _ShadowTint: {r: 0.8742138, g: 0.18418953, b: 0.18418953, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7707279989863335953

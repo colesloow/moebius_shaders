@@ -426,6 +426,20 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+                    "m_Id": "5f98358aa53446a19d5e006b07fb9a1b"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "be07f910856a4f249ae4760e3ed631ed"
+                },
+                "m_SlotId": 1
+            },
+            "m_InputSlot": {
+                "m_Node": {
                     "m_Id": "febf7cc4b3744c4fb050891e353ccc44"
                 },
                 "m_SlotId": 0
@@ -539,20 +553,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "d067cca1d9724e5b8978fd0d237bb5ef"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "febf7cc4b3744c4fb050891e353ccc44"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "5f98358aa53446a19d5e006b07fb9a1b"
                 },
                 "m_SlotId": 0
             }
@@ -799,7 +799,7 @@
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
-        "y": 2.0
+        "y": 1.0
     },
     "m_SliderType": 0,
     "m_SliderPower": 3.0,
@@ -1953,7 +1953,7 @@
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
-        "y": 2.0
+        "y": 1.0
     },
     "m_SliderType": 0,
     "m_SliderPower": 3.0,
@@ -2633,7 +2633,7 @@
     "m_ObjectId": "a546dc63767b4b0b892f41ecc48030bf",
     "m_Title": "LUMA",
     "m_Position": {
-        "x": -2480.666748046875,
+        "x": -2480.6669921875,
         "y": -910.6666870117188
     }
 }
@@ -3276,7 +3276,7 @@
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
-        "y": 2.0
+        "y": 1.0
     },
     "m_SliderType": 0,
     "m_SliderPower": 3.0,
@@ -3697,8 +3697,8 @@
     "m_ObjectId": "eafb16f5c7f84f79a6c28c7df5d02e12",
     "m_Title": "HATCHES",
     "m_Position": {
-        "x": -2322.666748046875,
-        "y": -356.0
+        "x": -2322.6669921875,
+        "y": -356.0000305175781
     }
 }
 
