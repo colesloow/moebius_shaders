@@ -15,8 +15,12 @@ This project is strongly inspired by:
 - **Moebius / Jean Giraud**  
   Especially his use of flat colors, simplified lighting, and strong silhouettes in comics.
 
+  ![](/Assets/Images/moebius.webp)
+
 - **Sable (video game)**  
   A game directly inspired by Moebius’ work, both visually and atmospherically.
+
+  ![](/Assets/Images/sable_game.jpg)
 
 - **Edge detection for outlines**  
   Parts of the outline logic (depth / normal based edge detection) are adapted from this tutorial:  
@@ -97,4 +101,13 @@ Rather than aiming for physical realism, the system is used to:
 - **Fortress Towers** by [Nicolai Kilstrup](https://sketchfab.com/nkilstrup)
 - **Sand Rocks** and **Desert Stones** by [YadroGames](https://sketchfab.com/yadrogames)
 
+---
+
+## Visual Examples
+
+![](/Assets/Images/screenshot1.png)
+![](/Assets/Images/screenshot2.png)
+![](/Assets/Images/screenshot3.png)
+![](/Assets/Images/screenshot4.png)
+![](/Assets/Images/screenshot5.png)
 
