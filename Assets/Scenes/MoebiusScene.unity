@@ -349,7 +349,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
+  - component: {fileID: 410087043}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -412,7 +413,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.5429584
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -474,13 +475,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.36599812, y: -0.45315403, z: 0.21130918, w: -0.7848855}
+  m_LocalRotation: {x: 0.7166796, y: 0, z: 0, w: -0.6974026}
   m_LocalPosition: {x: 0, y: 250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -300, z: 0}
+  m_LocalEulerAnglesHint: {x: 133.76, y: 0.04, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +511,39 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &410087043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410087039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3433ef60460c6d14fa011df77605bc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeOfDayController
+  autoAdvance: 0
+  dayLengthSeconds: 100
+  time: 0.81510544
+  dawn: 0.23
+  day: 0.35
+  dusk: 0.7
+  night: 0.85
+  tintDawn: {r: 1, g: 0.7551032, b: 0.39308167, a: 1}
+  tintDay: {r: 1, g: 1, b: 1, a: 1}
+  tintDusk: {r: 0.8679245, g: 0.47763136, b: 0.5721745, a: 1}
+  tintNight: {r: 0.34591186, g: 0.15120044, b: 0.15120044, a: 1}
+  skyTopDawn: {r: 0.49685526, g: 0.3617106, b: 0.24842757, a: 1}
+  skyTopDay: {r: 0.35, g: 0.65, b: 1, a: 1}
+  skyTopDusk: {r: 0.6750597, g: 0.6034966, b: 0.91823894, a: 1}
+  skyTopNight: {r: 0.10132108, g: 0.14017636, b: 0.29559743, a: 1}
+  skyBottomDawn: {r: 0.899371, g: 0.68626535, b: 0.5119061, a: 1}
+  skyBottomDay: {r: 0.8, g: 0.9, b: 1, a: 1}
+  skyBottomDusk: {r: 1, g: 0.25098038, b: 0.55031294, a: 1}
+  skyBottomNight: {r: 0.28930807, g: 0.06459392, b: 0.28233624, a: 1}
+  sun: {fileID: 410087040}
+  offset: -25
 --- !u!1 &547930273
 GameObject:
   m_ObjectHideFlags: 0
