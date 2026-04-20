@@ -47,6 +47,8 @@ void DepthBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
     float gx = 0.0;
     float gy = 0.0;
 
+    float centerDepth = LinearEyeDepth(SampleSceneDepth(screenUV), _ZBufferParams);
+
     // Sample depth in a 3x3 neighborhood
     for (int i = -1; i <= 1; i++)
     {
@@ -63,9 +65,10 @@ void DepthBasedOutlines_float(float2 screenUV, float2 px, out float outlines)
         }
     }
 
-    float g = sqrt(gx * gx + gy * gy);
+    // Normalize by center depth so the threshold is scale-invariant:
+    // curved surfaces produce small relative gradients, real discontinuities produce large ones
+    float g = sqrt(gx * gx + gy * gy) / max(centerDepth, 0.001);
 
-    // Threshold controls outline sensitivity
     outlines = step(0.05, g);
 }
 
