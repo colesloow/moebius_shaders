@@ -318,8 +318,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.049802, y: -0.05008617, z: -0.007541913, w: 0.9974739}
-  m_LocalPosition: {x: 19.266863, y: 82.44858, z: -105.68471}
+  m_LocalRotation: {x: 0.002161746, y: -0.99353755, z: -0.017556785, w: -0.112117186}
+  m_LocalPosition: {x: -114.54021, y: 19.686295, z: 288.2426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 3
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -410,7 +410,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5429584
@@ -462,7 +462,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -475,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7166796, y: 0, z: 0, w: -0.6974026}
+  m_LocalRotation: {x: 0.9170021, y: 0.034054484, z: -0.3892443, w: 0.080227345}
   m_LocalPosition: {x: 0, y: 250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -524,26 +524,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeOfDayController
   autoAdvance: 0
-  dayLengthSeconds: 100
-  time: 0.81510544
-  dawn: 0.23
-  day: 0.35
-  dusk: 0.7
-  night: 0.85
-  tintDawn: {r: 1, g: 0.7551032, b: 0.39308167, a: 1}
-  tintDay: {r: 1, g: 1, b: 1, a: 1}
-  tintDusk: {r: 0.8679245, g: 0.47763136, b: 0.5721745, a: 1}
-  tintNight: {r: 0.34591186, g: 0.15120044, b: 0.15120044, a: 1}
-  skyTopDawn: {r: 0.49685526, g: 0.3617106, b: 0.24842757, a: 1}
-  skyTopDay: {r: 0.35, g: 0.65, b: 1, a: 1}
-  skyTopDusk: {r: 0.6750597, g: 0.6034966, b: 0.91823894, a: 1}
-  skyTopNight: {r: 0.10132108, g: 0.14017636, b: 0.29559743, a: 1}
-  skyBottomDawn: {r: 0.899371, g: 0.68626535, b: 0.5119061, a: 1}
-  skyBottomDay: {r: 0.8, g: 0.9, b: 1, a: 1}
-  skyBottomDusk: {r: 1, g: 0.25098038, b: 0.55031294, a: 1}
-  skyBottomNight: {r: 0.28930807, g: 0.06459392, b: 0.28233624, a: 1}
+  dayLengthSeconds: 50
+  time: 0.224
+  dawn: {fileID: 0}
+  day: {fileID: 0}
+  dusk: {fileID: 0}
+  night: {fileID: 0}
+  dawnKey: 0.23
+  dayKey: 0.35
+  duskKey: 0.7
+  nightKey: 0.85
   sun: {fileID: 410087040}
-  offset: -25
+  captureOverride: 1
+  overrideTint: {r: 1, g: 1, b: 1, a: 1}
+  overrideSkyTop: {r: 0.45395306, g: 0.28475437, b: 0.764151, a: 1}
+  overrideSkyBottom: {r: 0.4575472, g: 0.97808737, b: 1, a: 1}
+  overrideSunPitch: 170
+  overrideSunYaw: 46
 --- !u!1 &547930273
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,7 +3331,7 @@ Transform:
   m_GameObject: {fileID: 843116936062279848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.40673664, z: 0, w: 0.9135455}
-  m_LocalPosition: {x: -8.5, y: -3.86, z: -5.52}
+  m_LocalPosition: {x: -7.78, y: -4.05, z: -4.72}
   m_LocalScale: {x: 1, y: 0.31033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
