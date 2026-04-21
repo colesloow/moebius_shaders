@@ -15,12 +15,12 @@ This project is strongly inspired by:
 - **Moebius / Jean Giraud**  
   Especially his use of flat colors, simplified lighting, and strong silhouettes in comics.
 
-  ![](Assets/Images/moebius.webp)
+    ![](Assets/Images/moebius.webp)
 
 - **Sable (video game)**  
-  A game directly inspired by Moebius’ work, both visually and atmospherically.
+  A game directly inspired by Moebius' work, both visually and atmospherically.
 
-  ![](Assets/Images/sable_game.jpg)
+    ![](Assets/Images/sable_game.jpg)
 
 - **Edge detection for outlines**  
   Parts of the outline logic (depth / normal based edge detection) are adapted from this tutorial:  
@@ -35,9 +35,10 @@ This project is strongly inspired by:
 ## Features
 
 - Screen-space outlines based on:
-  - Depth
-  - Normals
-  - Color / luminance differences  
+    - Depth
+    - Normals
+    - Color / luminance differences
+    - **Shadow step detection** —> detects light/shadow boundaries by comparing neighbor luminance against two configurable threshold pairs, covering both dark and light shadow zones
 - Stable outlines on both opaque and transparent objects
 - Screen-space hatching driven by pixel brightness
 - **ColorGradient shader**  
@@ -47,7 +48,7 @@ This project is strongly inspired by:
 - **Bubble shader**  
   Used to create transparent bubbles with specular highlights  
   (the same shader is also reused for water rendering)
-- Modular Shader Graph setup with a few Custom Functions (HLSL) where needed
+- Modular Shader Graph setup with Custom Functions (HLSL) where needed
 
 ---
 
@@ -55,9 +56,11 @@ This project is strongly inspired by:
 
 - All main object shaders are **Unlit**
 - Lighting and shadows are computed manually in shaders  
-  (instead of relying on Unity’s built-in lighting)
+  (instead of relying on Unity's built-in lighting)
 - This allows full artistic control and helps achieve a comic / flat color look
-- Outlines and hatching are fullscreen post-processing shaders, applied in screen space
+- Outlines and hatching are fullscreen post-processing shaders applied in screen space
+- Render order: **Outlines** (before post-processing) then **Hatching** (after post-processing)  
+  This ordering prevents the outline pass from detecting hatching stripes as false edges
 
 ---
 
@@ -66,15 +69,29 @@ This project is strongly inspired by:
 The project includes a **Time of Day system** designed to drive the overall mood of the scene.
 
 Rather than aiming for physical realism, the system is used to:
+
 - Change the global color tint of the scene
 - Drive sky colors and atmosphere
 - Create different ambiances depending on the time of day
+
+Each phase (Dawn, Day, Dusk, Night) is defined as a **ScriptableObject profile** containing its own tint, sky colors, and sun angle. The controller interpolates between profiles on a circular 0..1 timeline.
+
+A **Capture Override** mode bypasses the time of day entirely, exposing tint, sky colors, sun pitch and yaw directly in the Inspector for quick one-off screenshot setups.
+
+---
+
+## Capture Tool
+
+A lightweight editor tool (`Tools > Game View Capture`) renders the scene at a configurable resolution and saves the result as a PNG.
+
+- Works in both **Edit Mode** and **Play Mode**
+- Shortcut: **Ctrl+Shift+C**
 
 ---
 
 ## Technical Notes
 
-- Built with **Unity URP**
+- Built with **Unity 6 URP**
 - Shaders are implemented mostly in **Shader Graph**
 - Some logic is implemented via **Custom HLSL Functions** when Shader Graph alone is not sufficient
 - The project is intentionally experimental and not optimized for production
@@ -83,11 +100,11 @@ Rather than aiming for physical realism, the system is used to:
 
 ## Known Issues / Feedback Welcome
 
-- The visual result often looks worse in Game View than in Edit Mode...
-- Aliasing (especially on outlines) is still an issue
+- Aliasing on outlines is still an issue
+- The shadow step outline detection relies on absolute luminance thresholds and may need tuning per scene lighting
 - Performance and shader complexity could be improved
 
-**Any feedback, suggestions, or advice are welcome.** 😊
+**Any feedback, suggestions, or advice are welcome.**
 
 ---
 
@@ -96,6 +113,7 @@ Rather than aiming for physical realism, the system is used to:
 3D models are not made by me!
 
 **Credits:**
+
 - **Desert Houses** by [Gunnar Correa](https://sketchfab.com/gunnarcorrea)
 - **Mountainous Desert** by [Šimon Ustal](https://sketchfab.com/simonustal)
 - **Fortress Towers** by [Nicolai Kilstrup](https://sketchfab.com/nkilstrup)
@@ -105,9 +123,25 @@ Rather than aiming for physical realism, the system is used to:
 
 ## Visual Examples
 
-![](Assets/Images/screenshot1.png)
-![](Assets/Images/screenshot2.png)
-![](Assets/Images/screenshot3.png)
-![](Assets/Images/screenshot4.png)
-![](Assets/Images/screenshot5.png)
-
+<table>
+  <tr>
+    <td><img src="Screenshots/finalcapt_1.png"/></td>
+    <td><img src="Screenshots/finalcapt_2.png"/></td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/finalcapt_3.png"/></td>
+    <td><img src="Screenshots/finalcapt_4.png"/></td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/finalcapt_5.png"/></td>
+    <td><img src="Screenshots/finalcapt_6.png"/></td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/finalcapt_7.png"/></td>
+    <td><img src="Screenshots/finalcapt_8.png"/></td>
+  </tr>
+  <tr>
+    <td><img src="Screenshots/finalcapt_9.png"/></td>
+    <td><img src="Screenshots/finalcapt_10_20260421_224321.png"/></td>
+  </tr>
+</table>
