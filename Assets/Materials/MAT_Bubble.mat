@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - _Amount: 0
     - _BackfaceOpacity: 0.25
-    - _BubbleOpacity: 0.65
+    - _BubbleOpacity: 0.5
     - _Dissolve: 0
     - _EdgeOpacity: 1
     - _EdgeStrength: 1
@@ -67,7 +67,7 @@ Material:
     - _SpecIntensity: 1
     - _SpecPower: 0.99
     m_Colors:
-    - _BaseColor: {r: 0.23544855, g: 0.3490566, b: 0.34823927, a: 1}
+    - _BaseColor: {r: 0.4559747, g: 1, b: 0.9946249, a: 1}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 0.8066795, b: 0.5817609, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
