@@ -1,3 +1,6 @@
+#ifndef OUTLINES_HLSL_INCLUDED
+#define OUTLINES_HLSL_INCLUDED
+
 // Screen-space outline utilities.
 // DepthBasedOutlines and NormalBasedOutlines adapted from this tutorial:
 // https://www.youtube.com/watch?v=nc3a3THBFrg&t=1286s
@@ -140,3 +143,33 @@ void ColorBasedOutlinesFromSamples_float(
     // Smooth thresholding for softer edges
     outlines = smoothstep(threshold, threshold * 2.0, e);
 }
+
+// Detects shadow/light boundaries specifically.
+// Fires only when at least one neighbor is in shadow AND one is in light.
+// Two independent threshold pairs cover both dark and light shadow zones.
+void ShadowStepOutlines_float(
+    float4 cL,
+    float4 cR,
+    float4 cU,
+    float4 cD,
+    float shadowLumaMax1,  // dark step: luma threshold for shadow side (~0.2)
+    float lightLumaMin1,   // dark step: luma threshold for lit side   (~0.2)
+    float shadowLumaMax2,  // light step: luma threshold for shadow side (~0.4)
+    float lightLumaMin2,   // light step: luma threshold for lit side   (~0.4)
+    out float outlines)
+{
+    float lL = SG_Luma(cL.rgb);
+    float lR = SG_Luma(cR.rgb);
+    float lU = SG_Luma(cU.rgb);
+    float lD = SG_Luma(cD.rgb);
+
+    float lMin = min(min(lL, lR), min(lU, lD));
+    float lMax = max(max(lL, lR), max(lU, lD));
+
+    float step1 = step(lMin, shadowLumaMax1) * step(lightLumaMin1, lMax);
+    float step2 = step(lMin, shadowLumaMax2) * step(lightLumaMin2, lMax);
+
+    outlines = saturate(step1 + step2);
+}
+
+#endif // OUTLINES_HLSL_INCLUDED

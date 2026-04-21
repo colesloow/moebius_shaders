@@ -105,7 +105,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HatchScale: 8
+    - _HatchScale: 9
     - _Horizontal: 0.6
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -118,8 +118,8 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _StepEdgeColor: 0
-    - _StepEdgeStrength: 1
-    - _StepEdgeWidth: 1
+    - _StepEdgeStrength: 0
+    - _StepEdgeWidth: 0.62
     - _Surface: 0
     - _Vertical: 0.9
     - _WorkflowMode: 1

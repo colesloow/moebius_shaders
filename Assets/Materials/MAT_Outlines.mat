@@ -37,10 +37,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseScale: 0
+    - _LightLumaMax: 0.4
+    - _LightLumaMin: 0.4
+    - _NoiseScale: 150
     - _OutlinesColorThreshold: 0.2
-    - _OutlinesThickness: 0.5
+    - _OutlinesThickness: 1
     - _OutlinesThreshold: 0.5
+    - _ShadowLumaMax: 0.2
+    - _ShadowLumaMin: 0.2
+    - _ShadowStepThreshold: 0.04
     m_Colors:
     - _OutlinesColor: {r: 0.06918234, g: 0.06918234, b: 0.06918234, a: 1}
   m_BuildTextureStacks: []
