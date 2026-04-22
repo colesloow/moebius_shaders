@@ -34,13 +34,10 @@ This project is strongly inspired by:
 
 ## Features
 
-- Screen-space outlines based on:
-    - Depth
-    - Normals
-    - Color / luminance differences
-    - **Shadow step detection** —> detects light/shadow boundaries by comparing neighbor luminance against two configurable threshold pairs, covering both dark and light shadow zones
-- Stable outlines on both opaque and transparent objects
-- Screen-space hatching driven by pixel brightness
+- **Outlines shader** 
+  Screen-space outlines based on depth, normals and color / luminance differences
+- **Hatching shader** 
+  Screen-space hatching driven by pixel brightness
 - **ColorGradient shader**  
   Allows defining a base color and a separate shadow color for opaque objects, enabling more interesting color gradients and flat-shaded looks
 - **Skybox shader**  
@@ -48,19 +45,14 @@ This project is strongly inspired by:
 - **Bubble shader**  
   Used to create transparent bubbles with specular highlights  
   (the same shader is also reused for water rendering)
-- Modular Shader Graph setup with Custom Functions (HLSL) where needed
-
 ---
 
 ## Rendering Approach
 
-- All main object shaders are **Unlit**
-- Lighting and shadows are computed manually in shaders  
-  (instead of relying on Unity's built-in lighting)
-- This allows full artistic control and helps achieve a comic / flat color look
-- Outlines and hatching are fullscreen post-processing shaders applied in screen space
-- Render order: **Outlines** (before post-processing) then **Hatching** (after post-processing)  
-  This ordering prevents the outline pass from detecting hatching stripes as false edges
+All main object shaders are **Unlit**. Lighting and shadows are computed manually in shaders (instead of relying on Unity's built-in lighting). This allows full artistic control and helps achieve a comic / flat color look.
+Outlines and hatching are fullscreen post-processing shaders applied in screen space.
+Render order: **Outlines** (before post-processing) then **Hatching** (after post-processing)  
+This ordering prevents the outline pass from detecting hatching stripes as false edges
 
 ---
 
