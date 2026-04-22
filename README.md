@@ -51,8 +51,9 @@ This project is strongly inspired by:
 
 All main object shaders are **Unlit**. Lighting and shadows are computed manually in shaders (instead of relying on Unity's built-in lighting). This allows full artistic control and helps achieve a comic / flat color look.
 Outlines and hatching are fullscreen post-processing shaders applied in screen space.
-Render order: **Outlines** (before post-processing) then **Hatching** (after post-processing)  
-This ordering prevents the outline pass from detecting hatching stripes as false edges
+
+Render order: **Outlines** (before post-processing) then **Hatching** (after post-processing).
+This ordering prevents the outline pass from detecting hatching stripes as false edges.
 
 ---
 
